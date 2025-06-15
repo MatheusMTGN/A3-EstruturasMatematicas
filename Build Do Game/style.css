@@ -1,0 +1,125 @@
+:root {
+  --bg-color: #1a1a1a;
+  --card-color: #2c2c2c;
+  --text-color: #f0f0f0;
+  --primary-color: #00aaff;
+  --header-font: "Roboto", sans-serif;
+}
+
+body {
+  font-family: var(--header-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.main-container {
+  max-width: 960px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+header h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #b0b0b0;
+}
+
+.section {
+  background-color: var(--card-color);
+  border-radius: 8px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.section h2 {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-top: 0;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #e0e0e0;
+  margin-top: 25px;
+}
+
+p,
+li {
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+code {
+  background-color: #111;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #ffc107;
+}
+
+.math-matrix {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  font-family: monospace;
+  font-size: 1.2em;
+  background-color: #111;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #777;
+}
+
+/* Ajustes para o container do jogo Unity */
+#unity-container {
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 170, 255, 0.4);
+  overflow: hidden; /* Garante que o canvas não vaze */
+}
+
+#unity-container.unity-desktop {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+}

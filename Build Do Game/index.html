@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cubo Mágico | A Matemática por Trás do Desafio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="TemplateData/style.css" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <header>
+        <h1>O Cubo Mágico</h1>
+        <p>A Matemática Oculta por Trás do Desafio</p>
+      </header>
+
+      <div id="unity-container" class="unity-desktop">
+        <canvas
+          id="unity-canvas"
+          width="960"
+          height="600"
+          tabindex="-1"
+        ></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
+        </div>
+        <div id="unity-warning"></div>
+        <div id="unity-footer">
+          <div id="unity-webgl-logo"></div>
+          <div id="unity-fullscreen-button"></div>
+          <div id="unity-build-title">Cudomágico</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Bem-vindo ao Desafio</h2>
+        <p>
+          Este projeto é mais do que um jogo: é uma exploração interativa das
+          <strong>Estruturas Matemáticas</strong> que governam o famoso Cubo
+          Mágico. Criado na Unity, este aplicativo demonstra como conceitos
+          abstratos de Álgebra Linear, Teoria de Conjuntos e Funções são
+          aplicados para criar a lógica e a dinâmica de um objeto 3D complexo.
+          Use o mouse para girar as faces e explore a beleza matemática em ação.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Os Pilares Matemáticos do Cubo</h2>
+
+        <h3>Matrizes e Vetores: A Arquitetura do Movimento</h3>
+        <p>
+          Cada peça do cubo tem uma posição no espaço 3D, representada por um
+          <strong>vetor</strong> `(x, y, z)`. Quando você gira uma face, o
+          programa aplica uma <strong>matriz de rotação</strong> a cada um dos
+          vetores das peças naquela face. Essa operação de Álgebra Linear
+          calcula a nova posição de cada peça de forma precisa, criando o
+          movimento que você vê na tela.
+        </p>
+        <p>
+          Por exemplo, uma rotação de 90° em torno do eixo Z é representada pela
+          matriz:
+        </p>
+        <div class="math-matrix">
+          $$ R_z(90^\circ) = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 &
+          1 \end{pmatrix} $$
+        </div>
+
+        <h3>Conjuntos e Funções: A Lógica do Quebra-Cabeça</h3>
+        <p>
+          O cubo é um <strong>conjunto</strong> de 26 peças. Cada movimento que
+          você faz é uma <strong>função de permutação</strong> — uma regra que
+          mapeia o estado atual do conjunto de peças para um novo estado.
+          Resolver o cubo é encontrar a sequência correta de funções
+          (movimentos) para reverter as permutações e retornar ao estado inicial
+          ordenado.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Tutorial Rápido: Resolvendo por Camadas</h2>
+        <p>
+          Resolver o Cubo Mágico parece impossível, mas seguindo um método de
+          camadas, torna-se um processo passo a passo. Aqui está a base do
+          método para iniciantes:
+        </p>
+
+        <h3>Passo 1: A Cruz Branca</h3>
+        <p>
+          O primeiro objetivo é formar uma cruz na face branca, garantindo que
+          as cores das peças laterais da cruz combinem com os centros das faces
+          adjacentes. Isso é feito de forma intuitiva, sem algoritmos fixos.
+        </p>
+
+        <h3>Passo 2: Primeira Camada (Cantos Brancos)</h3>
+        <p>
+          Com a cruz pronta, posicione os quatro cantos da face branca. Encontre
+          um canto com branco na sua face e posicione-o acima de onde ele deve
+          ir. Use o algoritmo <code>R U R' U'</code> (Direita, Topo, Direita
+          Invertido, Topo Invertido) repetidamente até que o canto se encaixe
+          corretamente.
+        </p>
+
+        <h3>Passo 3: Segunda Camada (Peças do Meio)</h3>
+        <p>
+          Vire o cubo, deixando a face branca para baixo. Agora, encaixe as 4
+          peças das arestas do meio. Alinhe uma peça da camada de cima com seu
+          centro correspondente e use um dos algoritmos abaixo para movê-la para
+          a direita ou para a esquerda.
+        </p>
+        <ul>
+          <li>Para mover para a direita: <code>U R U' R' U' F' U F</code></li>
+          <li>Para mover para a esquerda: <code>U' L' U L U F U' F'</code></li>
+        </ul>
+
+        <h3>Passo 4: Última Camada (Face Amarela)</h3>
+        <p>Esta é a etapa mais complexa, dividida em quatro partes:</p>
+        <ol>
+          <li>
+            <strong>Fazer a Cruz Amarela:</strong> Use o algoritmo
+            <code>F R U R' U' F'</code> até formar uma cruz amarela no topo.
+          </li>
+          <li>
+            <strong>Orientar os Cantos Amarelos:</strong> Use
+            <code>R U R' U R U2 R'</code> para fazer com que toda a face do topo
+            fique amarela.
+          </li>
+          <li>
+            <strong>Posicionar os Cantos:</strong> Use
+            <code>U R U' L' U R' U' L</code> para colocar os cantos amarelos em
+            suas posições finais (mesmo que a orientação esteja errada).
+          </li>
+          <li>
+            <strong>Posicionar as Arestas:</strong> Use
+            <code>R U' R U R U R U' R' U' R2</code> para finalizar o cubo.
+          </li>
+        </ol>
+        <p>
+          Pode parecer muito, mas com a prática, os algoritmos se tornam memória
+          muscular. <strong>Boa sorte!</strong>
+        </p>
+      </div>
+
+      <footer>
+        <p>Feito por: Matheus, Danilo e Gustavo</p>
+      </footer>
+    </div>
+
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length
+            ? "block"
+            : "none";
+        }
+        var div = document.createElement("div");
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == "error") div.style = "background: red; padding: 10px;";
+        else {
+          if (type == "warning")
+            div.style = "background: yellow; padding: 10px;";
+          setTimeout(function () {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Build Do Game.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Build Do Game.data.gz",
+        frameworkUrl: buildUrl + "/Build Do Game.framework.js.gz",
+        codeUrl: buildUrl + "/Build Do Game.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Cudomágico",
+        productVersion: "0.1",
+        showBanner: unityShowBanner,
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement("meta");
+        meta.name = "viewport";
+        meta.content =
+          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+        document.getElementsByTagName("head")[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        })
+          .then((unityInstance) => {
+            loadingBar.style.display = "none";
+            fullscreenButton.onclick = () => {
+              unityInstance.SetFullscreen(1);
+            };
+          })
+          .catch((message) => {
+            alert(message);
+          });
+      };
+      document.body.appendChild(script);
+
+      // Script para renderizar LaTeX (MathJax)
+      function loadMathJax() {
+        var script = document.createElement("script");
+        script.src =
+          "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+        script.async = true;
+        script.id = "MathJax-script";
+        document.head.appendChild(script);
+      }
+      loadMathJax();
+    </script>
+  </body>
+</html>
