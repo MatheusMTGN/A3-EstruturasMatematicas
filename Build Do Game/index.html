@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Cubo Mágico | A Matemática por Trás do Desafio</title>
+    <title>Decifre o Cubo: A Matemática Por Trás da Magia</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
 
@@ -20,19 +19,14 @@
   </head>
 
   <body>
-    <div class="main-container">
-      <header>
-        <h1>O Cubo Mágico</h1>
-        <p>A Matemática Oculta por Trás do Desafio</p>
-      </header>
+    <header class="main-header">
+      <h1>O CUBO MÁGICO</h1>
+      <p>A lógica e os algoritmos por trás do Cubo Mágico.</p>
+    </header>
 
+    <main class="main-content">
       <div id="unity-container" class="unity-desktop">
-        <canvas
-          id="unity-canvas"
-          width="960"
-          height="600"
-          tabindex="-1"
-        ></canvas>
+        <canvas id="unity-canvas" tabindex="-1"></canvas>
         <div id="unity-loading-bar">
           <div id="unity-logo"></div>
           <div id="unity-progress-bar-empty">
@@ -40,211 +34,304 @@
           </div>
         </div>
         <div id="unity-warning"></div>
-        <div id="unity-footer">
-          <div id="unity-webgl-logo"></div>
-          <div id="unity-fullscreen-button"></div>
-          <div id="unity-build-title">Cudomágico</div>
+      </div>
+
+      <section class="content-section revealable" id="intro">
+        <div class="section-title">
+          <span class="color-square blue"></span>
+          <h2>Um Modelo Matemático Interativo</h2>
         </div>
-      </div>
-
-      <div class="section">
-        <h2>Bem-vindo ao Desafio</h2>
         <p>
-          Este projeto é mais do que um jogo: é uma exploração interativa das
-          <strong>Estruturas Matemáticas</strong> que governam o famoso Cubo
-          Mágico. Criado na Unity, este aplicativo demonstra como conceitos
-          abstratos de Álgebra Linear, Teoria de Conjuntos e Funções são
-          aplicados para criar a lógica e a dinâmica de um objeto 3D complexo.
-          Use o mouse para girar as faces e explore a beleza matemática em ação.
+          Este projeto trata o Cubo Mágico como um sistema matemático
+          autocontido. Ele revela de forma prática a aplicação de conceitos da
+          disciplina, onde <strong>vetores</strong> determinam a posição das
+          peças, <strong>matrizes</strong> comandam as rotações como
+          transformações lineares, e <strong>funções</strong> de permutação
+          operam sobre o <strong>conjunto</strong> de peças para alterar seu
+          estado de forma lógica e previsível.
         </p>
-      </div>
+      </section>
 
-      <div class="section">
-        <h2>Os Pilares Matemáticos do Cubo</h2>
+      <section class="content-section revealable" id="math">
+        <div class="section-title">
+          <span class="color-square red"></span>
+          <h2>A Máquina Matemática do Cubo</h2>
+        </div>
 
-        <h3>Matrizes e Vetores: A Arquitetura do Movimento</h3>
+        <h3>Matrizes e Vetores: A Geometria das Rotações</h3>
         <p>
-          Cada peça do cubo tem uma posição no espaço 3D, representada por um
-          <strong>vetor</strong> `(x, y, z)`. Quando você gira uma face, o
-          programa aplica uma <strong>matriz de rotação</strong> a cada um dos
-          vetores das peças naquela face. Essa operação de Álgebra Linear
-          calcula a nova posição de cada peça de forma precisa, criando o
-          movimento que você vê na tela.
+          No espaço tridimensional do cubo, cada peça individual é localizada
+          por um <strong>vetor de posição</strong> (x, y, z). Um giro de face
+          representa uma transformação geométrica, executada pela aplicação de
+          uma <strong>matriz de rotação</strong> sobre os vetores das peças
+          afetadas. Essa operação da Álgebra Linear recalcula as novas
+          coordenadas de forma precisa e instantânea.
         </p>
-        <p>
-          Por exemplo, uma rotação de 90° em torno do eixo Z é representada pela
-          matriz:
-        </p>
+
         <div class="math-matrix">
           $$ R_z(90^\circ) = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 &
           1 \end{pmatrix} $$
         </div>
 
-        <h3>Conjuntos e Funções: A Lógica do Quebra-Cabeça</h3>
+        <h3>Conjuntos e Funções: A Lógica das Permutações</h3>
         <p>
-          O cubo é um <strong>conjunto</strong> de 26 peças. Cada movimento que
-          você faz é uma <strong>função de permutação</strong> — uma regra que
-          mapeia o estado atual do conjunto de peças para um novo estado.
-          Resolver o cubo é encontrar a sequência correta de funções
-          (movimentos) para reverter as permutações e retornar ao estado inicial
+          O estado completo do cubo pode ser entendido como um
+          <strong>conjunto</strong> finito de 26 peças. Cada algoritmo ou
+          movimento aplicado é uma <strong>função</strong> de permutação que
+          opera sobre esse conjunto. A função mapeia o estado atual para um novo
+          estado, alterando a posição e a orientação das peças de maneira
+          determinística. Resolver o quebra-cabeça é o processo de compor a
+          sequência de funções que retorna o conjunto ao seu estado original e
           ordenado.
         </p>
-      </div>
+      </section>
 
-      <div class="section">
-        <h2>Tutorial Rápido: Resolvendo por Camadas</h2>
+      <section class="content-section revealable" id="guide">
+        <div class="section-title">
+          <span class="color-square green"></span>
+          <h2>Guia de Resolução: Método de Camadas</h2>
+        </div>
         <p>
-          Resolver o Cubo Mágico parece impossível, mas seguindo um método de
-          camadas, torna-se um processo passo a passo. Aqui está a base do
-          método para iniciantes:
+          A aparente complexidade do cubo é superada com método. O processo por
+          camadas divide o desafio em 7 etapas gerenciáveis, ideal para
+          iniciantes.
         </p>
 
-        <h3>Passo 1: A Cruz Branca</h3>
-        <p>
-          O primeiro objetivo é formar uma cruz na face branca, garantindo que
-          as cores das peças laterais da cruz combinem com os centros das faces
-          adjacentes. Isso é feito de forma intuitiva, sem algoritmos fixos.
-        </p>
+        <div class="guide-steps-detailed">
+          <div class="step-detailed revealable" style="--i: 0">
+            <div class="step-header">
+              <h4><span>1</span>A Cruz Branca</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Forme uma cruz na face branca. O ponto crucial é que a cor lateral
+              de cada peça da cruz deve corresponder à cor do centro da face
+              vizinha.
+            </p>
+          </div>
 
-        <h3>Passo 2: Primeira Camada (Cantos Brancos)</h3>
-        <p>
-          Com a cruz pronta, posicione os quatro cantos da face branca. Encontre
-          um canto com branco na sua face e posicione-o acima de onde ele deve
-          ir. Use o algoritmo <code>R U R' U'</code> (Direita, Topo, Direita
-          Invertido, Topo Invertido) repetidamente até que o canto se encaixe
-          corretamente.
-        </p>
+          <div class="step-detailed revealable" style="--i: 1">
+            <div class="step-header">
+              <h4><span>2</span>Finalizar a Primeira Camada</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Posicione cada canto com a cor branca acima de seu local de
+              destino e repita o algoritmo abaixo até que ele se encaixe
+              corretamente.
+            </p>
+            <div class="algorithm-box"><code>R U R' U'</code></div>
+          </div>
 
-        <h3>Passo 3: Segunda Camada (Peças do Meio)</h3>
-        <p>
-          Vire o cubo, deixando a face branca para baixo. Agora, encaixe as 4
-          peças das arestas do meio. Alinhe uma peça da camada de cima com seu
-          centro correspondente e use um dos algoritmos abaixo para movê-la para
-          a direita ou para a esquerda.
-        </p>
-        <ul>
-          <li>Para mover para a direita: <code>U R U' R' U' F' U F</code></li>
-          <li>Para mover para a esquerda: <code>U' L' U L U F U' F'</code></li>
-        </ul>
+          <div class="step-detailed revealable" style="--i: 2">
+            <div class="step-header">
+              <h4><span>3</span>Segunda Camada</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Com a face branca para baixo, alinhe uma peça da camada de cima e
+              use o algoritmo correspondente para inseri-la à direita ou à
+              esquerda.
+            </p>
+            <div class="algorithm-box">
+              <span>Para a Direita:</span><code>U R U' R' U' F' U F</code>
+              <span>Para a Esquerda:</span><code>U' L' U L U F U' F'</code>
+            </div>
+          </div>
 
-        <h3>Passo 4: Última Camada (Face Amarela)</h3>
-        <p>Esta é a etapa mais complexa, dividida em quatro partes:</p>
-        <ol>
-          <li>
-            <strong>Fazer a Cruz Amarela:</strong> Use o algoritmo
-            <code>F R U R' U' F'</code> até formar uma cruz amarela no topo.
-          </li>
-          <li>
-            <strong>Orientar os Cantos Amarelos:</strong> Use
-            <code>R U R' U R U2 R'</code> para fazer com que toda a face do topo
-            fique amarela.
-          </li>
-          <li>
-            <strong>Posicionar os Cantos:</strong> Use
-            <code>U R U' L' U R' U' L</code> para colocar os cantos amarelos em
-            suas posições finais (mesmo que a orientação esteja errada).
-          </li>
-          <li>
-            <strong>Posicionar as Arestas:</strong> Use
-            <code>R U' R U R U R U' R' U' R2</code> para finalizar o cubo.
-          </li>
-        </ol>
-        <p>
-          Pode parecer muito, mas com a prática, os algoritmos se tornam memória
-          muscular. <strong>Boa sorte!</strong>
-        </p>
-      </div>
+          <div class="step-detailed revealable" style="--i: 3">
+            <div class="step-header">
+              <h4><span>4</span>Fazer a Cruz Amarela</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Nesta etapa, ignore os cantos. O objetivo é formar uma cruz na
+              face amarela, não importando se as laterais estão corretas ainda.
+            </p>
+            <div class="algorithm-box"><code>F R U R' U' F'</code></div>
+          </div>
 
-      <footer>
-        <p>Feito por: Matheus, Danilo, Gustavo e Gabriel</p>
-      </footer>
-    </div>
+          <div class="step-detailed revealable" style="--i: 4">
+            <div class="step-header">
+              <h4><span>5</span>Alinhar a Cruz Amarela</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Gire a camada do topo até que o máximo de peças da cruz amarela se
+              alinhe com seus respectivos centros. Use o algoritmo para arrumar
+              as peças restantes.
+            </p>
+            <div class="algorithm-box"><code>R U R' U R U2 R'</code></div>
+          </div>
+
+          <div class="step-detailed revealable" style="--i: 5">
+            <div class="step-header">
+              <h4><span>6</span>Posicionar os Cantos Amarelos</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Encontre um canto que já esteja no lugar certo (mesmo que
+              orientado errado) e use o algoritmo para ciclar os outros até que
+              todos estejam em suas posições corretas.
+            </p>
+            <div class="algorithm-box"><code>U R U' L' U R' U' L</code></div>
+          </div>
+
+          <div class="step-detailed revealable" style="--i: 6">
+            <div class="step-header">
+              <h4><span>7</span>Orientar os Cantos Finais</h4>
+              <div class="step-checkbox" title="Marcar como concluído"></div>
+            </div>
+            <p>
+              Com o canto a ser orientado na sua frente direita, repita o
+              primeiro algoritmo até ele ficar amarelo em cima. Gire a camada de
+              baixo (D) para trazer o próximo canto e repita.
+            </p>
+            <div class="algorithm-box"><code>R U R' U'</code></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section revealable" id="credits">
+        <div class="section-title">
+          <span class="color-square yellow"></span>
+          <h2>Créditos do Projeto</h2>
+        </div>
+        <div class="credits-grid">
+          <div class="credit-item">
+            <p class="name">Matheus da Rocha Oliveira</p>
+            <p class="ra">RA: 12522165805</p>
+          </div>
+          <div class="credit-item">
+            <p class="name">Gustavo Gonçalves Pinto</p>
+            <p class="ra">RA: 12522179821</p>
+          </div>
+          <div class="credit-item">
+            <p class="name">Gabriel Abrantes Santana</p>
+            <p class="ra">RA: 12522217544</p>
+          </div>
+          <div class="credit-item">
+            <p class="name">Danilo Alves Guimarães</p>
+            <p class="ra">RA: 12522160611</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>A3 - Estruturas Matemáticas</p>
+    </footer>
 
     <script>
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
-
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length
-            ? "block"
-            : "none";
-        }
-        var div = document.createElement("div");
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == "error") div.style = "background: red; padding: 10px;";
-        else {
-          if (type == "warning")
-            div.style = "background: yellow; padding: 10px;";
-          setTimeout(function () {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build Do Game.loader.js";
-      var config = {
+      // --- Script de Carregamento do Jogo Unity ---
+      const buildUrl = "Build";
+      const loaderUrl = buildUrl + "/Build Do Game.loader.js";
+      const config = {
         dataUrl: buildUrl + "/Build Do Game.data.gz",
         frameworkUrl: buildUrl + "/Build Do Game.framework.js.gz",
         codeUrl: buildUrl + "/Build Do Game.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Cudomágico",
-        productVersion: "0.1",
-        showBanner: unityShowBanner,
+        productName: "CuboMágico3D",
+        productVersion: "1.0",
       };
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement("meta");
-        meta.name = "viewport";
-        meta.content =
-          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
-        document.getElementsByTagName("head")[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
+      const canvas = document.querySelector("#unity-canvas");
+      const loadingBar = document.querySelector("#unity-loading-bar");
+      const progressBarFull = document.querySelector(
+        "#unity-progress-bar-full"
+      );
 
       loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
+      const unityScript = document.createElement("script");
+      unityScript.src = loaderUrl;
+      unityScript.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        })
-          .then((unityInstance) => {
-            loadingBar.style.display = "none";
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          })
-          .catch((message) => {
-            alert(message);
-          });
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+        });
       };
-      document.body.appendChild(script);
+      document.body.appendChild(unityScript);
 
-      // Script para renderizar LaTeX (MathJax)
-      function loadMathJax() {
-        var script = document.createElement("script");
-        script.src =
-          "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-        script.async = true;
-        script.id = "MathJax-script";
-        document.head.appendChild(script);
+      // --- Script para renderizar LaTeX (fórmulas) ---
+      const mathJax = document.createElement("script");
+      mathJax.src =
+        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      mathJax.async = true;
+      document.head.appendChild(mathJax);
+
+      // --- Script para Gerar Animação de Partículas ---
+      function createParticles() {
+        const particleContainer = document.createElement("div");
+        particleContainer.id = "particle-container";
+        document.body.appendChild(particleContainer);
+
+        const colors = ["blue", "red", "green", "orange", "yellow", "white"];
+        const numParticles = 50;
+
+        for (let i = 0; i < numParticles; i++) {
+          const particle = document.createElement("div");
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          particle.className = `particle ${randomColor}`;
+
+          const size = Math.random() * 15 + 5;
+          const leftPosition = Math.random() * 100;
+          const fallDuration = Math.random() * 12 + 8;
+          const animationDelay = Math.random() * 10;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${leftPosition}vw`;
+          particle.style.opacity = Math.random() * 0.7 + 0.3;
+          particle.style.animationDuration = `${fallDuration}s`;
+          particle.style.animationDelay = `${animationDelay}s`;
+
+          particleContainer.appendChild(particle);
+        }
       }
-      loadMathJax();
+
+      // --- Script para Animação Scroll Reveal ---
+      function setupScrollReveal() {
+        const options = {
+          root: null,
+          threshold: 0.1,
+          rootMargin: "0px",
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        const elements = document.querySelectorAll(".revealable");
+        elements.forEach((el) => observer.observe(el));
+      }
+
+      function setupCheckboxes() {
+        const steps = document.querySelectorAll(".step-detailed");
+
+        steps.forEach((step) => {
+          const checkbox = step.querySelector(".step-checkbox");
+          checkbox.addEventListener("click", (event) => {
+            // Impede que o clique no checkbox dispare outros eventos
+            event.stopPropagation();
+            // Alterna a classe 'completed' no elemento pai (o card do passo)
+            step.classList.toggle("completed");
+          });
+        });
+      }
+
+      // --- Chama as funções de animação quando a página carrega ---
+      window.addEventListener("load", () => {
+        createParticles();
+        setupScrollReveal();
+        setupCheckboxes();
+      });
     </script>
   </body>
 </html>
